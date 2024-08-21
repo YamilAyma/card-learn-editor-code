@@ -1,0 +1,87 @@
+/* Customize :)  */
+body{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-inline: 2rem;
+}
+.card-learn{
+    display: flex;
+    flex-direction: column;
+    border: #ccc solid 2px;
+    border-radius: 2rem;
+}
+.card-learn__main{
+    display: flex;
+    padding-inline-start: 1rem;
+    padding-inline-end: 0.5rem;
+}
+.card-learn__code-block{
+    padding-inline-start: 1rem;
+}
+.card-learn__actions{
+    float: right;
+}
+.card-learn__result{
+    background-color: #ebebeb;
+    border: #ccc solid 1px;
+
+    padding: 1rem;
+}
+.card-learn__actions > ul{
+    padding-top: 2rem;
+}
+.card-learn__actions >  ul > li{
+    display: flex;
+    flex-direction: column;
+    margin: 0.5rem;
+    justify-content: center;
+}
+.card-learn__title{
+    color: #2b2b2b;
+    font-size: 1.5rem;
+}
+.card-learn__subtitle{
+    color: #707070;
+    margin: 0;
+}
+.card-learn__description{
+    color: #4b4b4b;
+    font-weight: 100;
+}
+.card-learn__content-text{
+    display: flex;
+    gap: 2vw;
+}
+/* For code editor block */
+.card-learn__code-block > textarea {
+    top: inherit;
+    left: inherit;
+    position: absolute;
+    width: 100%;
+    height: inherit;
+    margin-bottom: 10px;
+    opacity: 0;
+    resize: none;
+    z-index: 1;
+    cursor: pointer;
+}
+.card-learn__code-block > pre {
+    background: #f0f0f0;
+    border: 1px solid #ccc;
+    z-index: 2;
+}
+/* End */
+.card-learn__tags{
+    display: flex;
+    flex-direction: row;
+    gap: 1vw;
+}
+.card-learn__tag{
+    box-shadow: 2px 2px black;
+    text-align: center;
+    border-radius: 1rem;
+    padding: 1vw;
+    text-wrap: wrap;
+}
+.invisible{
+    display: none;
+}

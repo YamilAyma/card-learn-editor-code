@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Learn</title>
+    <!-- Prism Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css" />
+
+    <!-- For Card, customize -->
+     <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Prism JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+
+    <!-- 
+    Card Learn 🎴: A component that allows you to include interactive and stylized code examples also has the ability to refuse multiple times by changing IDs in elements and a bit of Javascript
+
+    """
+        This component uses Prism for syntax highlighting in addition to
+        use a view for results using the 'result(data, resultID, append)' function. Customize and enhance it to your liking.
+
+        Prism : https://prismjs.com/
+    
+    """
+    :::: COMPONENTS :::
+
+        > content: Card Title / Description / Box Results
+        
+        > actions: (IconButtons):: [Toggle] Editor / Reset / Run
+
+        > code-block: (INSERT): Write space to be able to execute code
+
+        > content-text: Display Text for User Support
+
+        > tags: Use them to display categories or aids
+
+    NOTE ✍: Change ID names of a card to identify you:
+    [Tip] - Use 'Change All Ocurrences' for easy work
+        LIST ID:
+            - window: Box for results, here the data passed
+                      by result() will be displayed
+
+            - code-block: Code editor section, used to show/hide
+
+            - card__code__1t: Textarea used for editor functionality,
+                             is hidden to delegate the view to card__code__1c
+
+            - card__code__1c: Text stylized by Prism for the
+                              code editor view, this element uses what is written in card__code__1t textarea to update the content
+
+            - initial__code__window: Default code to use in the editor, 
+                                     it will be loaded in the textarea 
+                                     every time 'Reset' is activated
+    -->
+
+
+    <!-- Copy this code and replace the IDs for each card -->
+    <div class="card-learn" id="card1">
+        <div class="card-learn__main">
+            <div class="card-learn__content">
+                <h3 class="card-learn__title">Title Card</h3>
+                <h5 class="card-learn__subtitle">Subtitle Card</h5>
+    
+                <p class="card-learn__description">
+                    A card to study concepts or operation of something, providing the possibility of handling and executing code in it.
+                    <br>
+                    <br>
+                    Rate ⭐ if this utility helps you :
+                </p>
+                <!-- Result Box ✍ -->    
+                <p id="window" class="card-learn__result">RESULTS</p>
+            </div>
+    
+            <div class="card-learn__actions">
+                <ul>
+                    <!-- ✍ Change IDs -->
+                    <li><button class="card-learn__actions__code" onclick="document.getElementById('code-block').classList.toggle('invisible') ">💻 Show/Hide Editor</button></li>
+                    
+                    <li><button class="card-learn__actions__reset" onclick="
+                        document.getElementById('card__code__1t').value = document.getElementById('initial__code__window').innerHTML ">🧹 Reset</button></li>
+
+                    <li><button class="card-learn__actions__execute" onclick="
+            let code = document.getElementById('card__code__1t').value
+            const func = new Function(code)
+            return func();"
+            >🏃‍♂️ Run</button></li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- ✍  Edit ID Code Block-->
+        <div class="card-learn__code-block" id="code-block">
+            <div class="card-learn__content-text">
+                <p class="card-learn__ad">Your Comments Here </p>
+
+                <div class="card-learn__tags">
+                    <p class="card-learn__tag">ResultID: window</p>
+                    <p class="card-learn__tag">Use: result(data, id, append=true)</p>
+                </div>
+            </div>
+            
+            <!-- ✍: Write text / Show Code -->
+            <textarea id="card__code__1t"></textarea>
+            <!-- PRETTY CODE / INITIAL CODE ✍ -->
+             <pre id="initial__code__window" class="invisible">alert("Hello World")</pre>
+            <pre><code id="card__code__1c" class="language-js "></code></pre>
+            </p>
+        </div>
+    </div>
+
+    <!-- For card, basic funcionality  -->
+    <script src="main.js"></script>
+</body>
+</html>
